@@ -1,0 +1,16 @@
+[build]
+  publish = "."
+  command = "echo 'No build step needed - static site'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[processing]
+  css = true
+  html = true
+  js = true

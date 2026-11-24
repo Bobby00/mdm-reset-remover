@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDM Reset Remover — Remove MDM "Automatically Resetting Soon"</title>
+    <meta name="description" content="MDM Reset Remover helps remove the 'Automatically resetting soon' message on phones enrolled in MDM or Enterprise Enrollment. Clear Play Services data, disable Play Store, and install Aurora Store.">
+    <meta name="theme-color" content="#1A73E8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">MDM Reset Remover</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#adb-setup">ADB Setup</a>
+                <a href="#download">Download</a>
+                <a href="#resources">Resources</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a href="#download" class="nav-btn">Download APK</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>MDM Reset Remover</h1>
+            <p class="hero-subtitle">Remove the "Automatically resetting soon" message on MDM-enrolled Android devices.</p>
+            <p class="hero-description">
+                A native Android app that clears Google Play Services data, disables the Play Store, and installs Aurora Store —
+                helping you bypass MDM enterprise enrollment restrictions on Android 10+.
+            </p>
+            <div class="hero-actions">
+                <a href="#download" class="btn btn-primary">Download APK (v1.0.0)</a>
+                <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+            </div>
+            <div class="hero-badge">
+                <span>✓ Android 10+</span>
+                <span>✓ No root required*</span>
+                <span>✓ Lightweight</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">What MDM Reset Remover Can Do</h2>
+            <p class="section-subtitle">All actions from a single app interface.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Check ADB Debugging</h3>
+                    <p>Verifies whether USB debugging (ADB) is enabled on your device — required before setting device owner.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Device Owner Check</h3>
+                    <p>Confirms if the app is set as Device Owner, which is required to modify system apps and policies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧹</div>
+                    <h3>Clear Play Services Data</h3>
+                    <p>Clears data and cache for Google Play Services (<code>com.google.android.gms</code>), which can reset MDM-triggered flags.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚫</div>
+                    <h3>Disable Google Play Store</h3>
+                    <p>Hides/disables the Play Store (<code>com.android.vending</code>) using Device Owner policies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Install Aurora Store</h3>
+                    <p>Downloads and installs the latest Aurora Store APK directly from Aurora OSS — a privacy-focused Play Store alternative.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>One-Tap Full Sequence</h3>
+                    <p>Run all steps in order: check ADB → verify device owner → clear Play Services → disable Play Store → install Aurora Store.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Follow these steps to remove the MDM reset message.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Enable ADB Debugging</h3>
+                        <p>Go to Settings > About Phone > tap Build Number 7 times to unlock Developer Options. Then enable USB Debugging.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Set Device Owner</h3>
+                        <p>Connect your phone to a computer via USB and run:</p>
+                        <code>adb shell dpm set-device-owner com.mdmresetremover.app/.DeviceAdminReceiver</code>
+                        <p class="step-note">Requires a factory-reset device or no existing device owner.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Run the App</h3>
+                        <p>Install MDM Reset Remover, grant all permissions, and tap "Run All Steps" to clear Play Services data, disable Play Store, and install Aurora Store.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADB Setup -->
+    <section id="adb-setup" class="section">
+        <div class="container">
+            <h2 class="section-title">ADB &amp; Device Owner Setup</h2>
+            <p class="section-subtitle">Why these steps are necessary.</p>
+            <div class="adb-card">
+                <h3>Why Device Owner is required</h3>
+                <p>
+                    On modern Android, a normal app cannot disable system apps like the Play Store or clear the data of other apps like Google Play Services.
+                    These actions require <strong>Device Owner</strong> privileges, which can only be granted via ADB from a computer.
+                </p>
+                <h3>Full ADB commands</h3>
+                <div class="code-block">
+<pre><code># 1. Enable USB debugging on your phone (Developer Options)
+# 2. Connect to computer via USB
+# 3. Authorize the computer on your phone
+# 4. Set this app as device owner:
+adb shell dpm set-device-owner com.mdmresetremover.app/.DeviceAdminReceiver
+
+# 5. Verify:
+adb shell dpm get-device-owner
+</code></pre>
+                </div>
+                <div class="warning-box">
+                    <strong>⚠️ Important:</strong> Setting a device owner requires the device to be factory reset or newly provisioned. If another device owner already exists, you must reset the device first.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download -->
+    <section id="download" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Download</h2>
+            <p class="section-subtitle">Get the latest version of MDM Reset Remover.</p>
+            <div class="download-card">
+                <div class="download-info">
+                    <h3>MDM Reset Remover v1.0.0</h3>
+                    <p>Native Android APK • Requires Android 10+ • ~2 MB</p>
+                    <div class="download-meta">
+                        <span>Updated: November 2026</span>
+                        <span>License: Proprietary</span>
+                    </div>
+                </div>
+                <a href="https://example.com/releases/mdm-reset-remover-v1.0.0.apk" class="btn btn-primary btn-large">Download APK</a>
+                <p class="download-note">
+                    <em>Replace the download link above with your actual APK hosting URL.</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="section">
+        <div class="container">
+            <h2 class="section-title">Related Problems &amp; Resources</h2>
+            <p class="section-subtitle">Links to help with common MDM and enterprise enrollment issues.</p>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>Android Device Policy Manager</h3>
+                    <p>Official Android documentation on Device Owner and device administration APIs.</p>
+                    <a href="https://developer.android.com/reference/android/app/admin/DevicePolicyManager" class="resource-link">Read docs →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>ADB Setup Guide</h3>
+                    <p>How to install ADB and enable USB debugging on Android.</p>
+                    <a href="https://developer.android.com/tools/adb" class="resource-link">ADB docs →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Aurora Store</h3>
+                    <p>Privacy-focused alternative to Google Play Store. Download the latest APK releases.</p>
+                    <a href="https://aurora.store/" class="resource-link">Visit Aurora Store →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Aurora OSS Releases</h3>
+                    <p>Direct download directory for Aurora Store APK files, including Huawei variants.</p>
+                    <a href="https://www.auroraoss.com/files/AuroraStore/Release" class="resource-link">Browse releases →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>MDM Bypass Community</h3>
+                    <p>Community discussions about MDM and enterprise enrollment removal on Android.</p>
+                    <a href="https://xdaforums.com/" class="resource-link">XDA Forums →</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Android Enterprise</h3>
+                    <p>Google's official Android Enterprise documentation for MDM enrollment.</p>
+                    <a href="https://enterprise.android.com/" class="resource-link">Android Enterprise →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">Does this require root?</button>
+                    <div class="faq-answer">
+                        <p>No. MDM Reset Remover does not require root. However, it does require Device Owner privileges set via ADB.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Will this work on Android 14+?</button>
+                    <div class="faq-answer">
+                        <p>The app targets Android 10+. Some Device Admin APIs are deprecated in Android 14+, so Device Owner features may be limited on newer versions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is it safe?</button>
+                    <div class="faq-answer">
+                        <p>This app modifies system settings and disables system apps. Use it at your own risk. Always back up your data before proceeding.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I re-enable the Play Store?</td>
+                    <div class="faq-answer">
+                        <p>Yes. You can re-enable the Play Store by clearing the device owner status or using ADB to unhide the package:</p>
+                        <code>adb shell dpm set-application-hidden com.android.vending false</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">MDM Reset Remover</div>
+                    <p>Removing MDM restrictions on Android devices.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#features">Features</a>
+                    <a href="#adb-setup">ADB Setup</a>
+                    <a href="#download">Download</a>
+                    <a href="#resources">Resources</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-disclaimer">
+                <p><strong>Disclaimer:</strong> This app is provided for educational and personal use. Modifying system settings may violate your organization's policies. Use at your own risk. The developer is not responsible for any data loss or device issues.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

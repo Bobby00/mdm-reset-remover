@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">MDM Reset Remover</string>
+    <string name="app_subtitle">Remove MDM "Automatically resetting soon" message</string>
+
+    <!-- Status -->
+    <string name="status_header">Device Status</string>
+    <string name="status_adb_checking">ADB Debugging: Checking…</string>
+    <string name="status_device_owner_checking">Device Owner: Checking…</string>
+    <string name="status_play_services_checking">Play Services: Checking…</string>
+    <string name="status_play_store_checking">Play Store: Checking…</string>
+    <string name="status_aurora_checking">Aurora Store: Checking…</string>
+
+    <!-- Actions -->
+    <string name="actions_header">Actions</string>
+    <string name="action_check_adb">Check ADB Debugging</string>
+    <string name="action_check_device_owner">Check Device Owner</string>
+    <string name="action_clear_play_services">Clear Play Services Data</string>
+    <string name="action_disable_play_store">Disable Google Play Store</string>
+    <string name="action_install_aurora">Download &amp; Install Aurora Store</string>
+    <string name="action_do_all">Run All Steps</string>
+
+    <!-- Device Admin -->
+    <string name="device_admin_label">MDM Reset Remover Device Admin</string>
+    <string name="device_admin_description">Device admin for MDM Reset Remover</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_adb_title">ADB Debugging Not Enabled</string>
+    <string name="dialog_device_owner_title">Device Owner Not Set</string>
+</resources>
